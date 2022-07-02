@@ -1,0 +1,1 @@
+{"mappings":"AAEA;EACE,OAHM","sources":["Desktop/careerfoundry/makaiFlix-client/src/index.scss"],"sourcesContent":["$color: steelblue;\n\n.my-flix {\n  color: $color;\n}\n"],"names":[],"version":3,"file":"index.28e9984d.css.map","sourceRoot":"/__parcel_source_root/"}
