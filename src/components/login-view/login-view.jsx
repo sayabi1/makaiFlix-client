@@ -12,7 +12,7 @@ export function LoginView (props){
         // props.onLoggedIn(username);
     }
     
-    }
+   
      return(
             <form>
                 <label>
@@ -26,4 +26,4 @@ export function LoginView (props){
                 <button type="button" onClick={this.handelSubmit}>Submit</button>
             </form>
         );
-   
+}
