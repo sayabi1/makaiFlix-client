@@ -15,6 +15,7 @@ export class MainView extends React.Component {
             user: null
         };
     } 
+    
     getMovies(token) {
       axios.get('https://makai-flix-db.herokuapp.com/movies', {
         headers: { Authorization: `Bearer ${token}`}
@@ -81,3 +82,4 @@ export class MainView extends React.Component {
       }
     
     }
+    
