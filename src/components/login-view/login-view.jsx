@@ -1,19 +1,31 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
+
+import axios from 'axios';
 
 export function LoginView (props){
     const [ username, setUsername] = useState('');
     const [ password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
+
+
+     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
-        /* send arequest to the server for authentication */
-        /* than call props.onLoggedIn(username) */
-         props.onLoggedIn(username);
-    }
-    
+        // Send a request to the server for authentication 
+        axios.post('https://makai-flix-db.herokuapp.com/login', {
+          Username: username,
+          Password: password
+        })
+        .then(response => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch(e => {
+          console.log('no such user')
+        });
+      };
    
      return(
        

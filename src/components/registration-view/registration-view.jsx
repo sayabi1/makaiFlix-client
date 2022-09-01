@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+/*import React, {useState} from 'react';
 import {Form, Button,Card,CardGroup } from 'react-bootstrap';
 
 
@@ -24,7 +24,7 @@ export function RegistrationView (props){
             /* the second argument_self is important
             so that the page will open in the new page.
             */
-        })
+       /* })
         .catch(e => {
             console.log('error registering the user ');
             alert('something was not entered right');
@@ -69,4 +69,4 @@ export function RegistrationView (props){
              </Form>
     )
 
-}
+}*/
