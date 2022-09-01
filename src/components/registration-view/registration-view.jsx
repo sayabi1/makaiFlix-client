@@ -12,7 +12,7 @@ export function RegistrationView (props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://makai-flix-db.herokuapp.com/users', {
+        axios.post('https://my-flix-application.herokuapp.com/users', {
             username:username,
             password:password,
             Email:email
@@ -68,5 +68,4 @@ export function RegistrationView (props){
              </Button>
              </Form>
     )
-
-}
+    }
