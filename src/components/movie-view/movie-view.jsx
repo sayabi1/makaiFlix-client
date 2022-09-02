@@ -23,7 +23,7 @@ export class MovieView extends React.Component {
         const {movie, onBackClick} = this.props;
         return ( <Card className='movie-view'>
             <Card.Header>
-                <Card.Img variant="top" src={movie.ImagePath}/>
+                <Card.Img variant="top"src={movie.ImagePath}/>
             </Card.Header>
             <Card.Body className='movie-view-title'>
                 <h1>{movie.Title}</h1>
@@ -56,3 +56,11 @@ export class MovieView extends React.Component {
         );
     }
 }
+MovieView.propTypes = {
+    movie: PropTypes.shape({
+      Title: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      ImagePath: PropTypes.string.isRequired
+    }).isRequired,
+    onBackClick: PropTypes.func.isRequired
+  };
