@@ -12,9 +12,9 @@ export function RegistrationView (props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://my-flix-application.herokuapp.com/users', {
-            username:username,
-            password:password,
+        axios.post('https://ap-myflix.herokuapp.com/users', {
+            Username:username,
+            Password:password,
             Email:email
         })
         .then(response => {

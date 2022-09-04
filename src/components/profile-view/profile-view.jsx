@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { Figure } from "react-bootstrap";
 
 // Import custom SCSS
 import "./profile-view.scss";
@@ -38,7 +39,7 @@ export class ProfileView extends React.Component {
     console.log(this.props);
     axios
       .delete(
-        `https://my-flix-application.herokuapp.com/users/${Username}/movies/${movie._id}`,
+        `https://ap-myflix.herokuapp.com/users/${Username}/movies/${movie._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
@@ -63,7 +64,7 @@ export class ProfileView extends React.Component {
   getUser = (token) => {
     const Username = localStorage.getItem("user");
     axios
-      .get(`https://my-flix-application.herokuapp.com/users/${Username}`, {
+      .get(`https://ap-myflix.herokuapp.com/users/${Username}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -86,7 +87,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     axios
       .put(
-        `https://my-flix-application.herokuapp.com/users/${Username}`,
+        `https://ap-myflix.herokuapp.com/users/${Username}`,
         {
           Username: this.state.Username,
           Password: this.state.Password,
@@ -123,7 +124,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
 
     axios
-      .delete(`https://my-flix-application.herokuapp.com/users/${Username}`, {
+      .delete(`https://ap-myflix.herokuapp.com/users/${Username}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -284,7 +285,6 @@ export class ProfileView extends React.Component {
                     <Button
                       className="remove"
                       variant="secondary"
-                      onClick={() => removeFav(movies._id)}
                     >
                       Remove from the list
                     </Button>
