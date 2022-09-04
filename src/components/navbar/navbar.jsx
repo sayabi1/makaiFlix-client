@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
+import PropTypes from "prop-types";
 
 export function Menubar() {
   let user = localStorage.getItem("user");

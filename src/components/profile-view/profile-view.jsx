@@ -80,7 +80,7 @@ export class ProfileView extends React.Component {
       });
   };
 
-  editUser = (e) => {
+   editUser = (e) => {
     e.preventDefault();
     const Username = localStorage.getItem("user");
     const token = localStorage.getItem("token");
@@ -276,7 +276,7 @@ export class ProfileView extends React.Component {
                 return (
                   <Col key={_id} className="fav-movie">
                     <Figure>
-                      <Link to={`/movies/${movie._id}`}>
+                      <Link to={`/movies/${movies._id}`}>
                         <Figure.Image src={ImagePath} alt={Title} />
                         <Figure.Caption>{Title}</Figure.Caption>
                       </Link>
@@ -284,7 +284,7 @@ export class ProfileView extends React.Component {
                     <Button
                       className="remove"
                       variant="secondary"
-                      onClick={() => removeFav(movie._id)}
+                      onClick={() => removeFav(movies._id)}
                     >
                       Remove from the list
                     </Button>
