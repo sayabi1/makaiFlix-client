@@ -8,10 +8,13 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
+import { setUser } from "../../actions/actions";
+import { connect } from "react-redux";
 
 import "./login-view.scss";
 
 import axios from "axios";
+import { connect } from "react-redux";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -115,12 +118,20 @@ export function LoginView(props) {
   );
 }
 
+let mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
 // prop-types
 // Give informational warnings in browser if data does not match required shape
 LoginView.propTypes = {
-  user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-  }),
+  //user: PropTypes.shape({
+    //username: PropTypes.string.isRequired,
+    //password: PropTypes.string.isRequired,
+  //}),
   onLoggedIn: PropTypes.func.isRequired,
 };
+
+export default connect(mapStateToProps, {setUser})(LoginView);
