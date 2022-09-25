@@ -39,7 +39,7 @@ export class ProfileView extends React.Component {
     console.log(this.props);
     axios
       .delete(
-        `https://ap-myflix.herokuapp.com/users/${Username}/movies/${movie._id}`,
+        `https://makai-flix-api.herokuapp.com/users/${Username}/movies/${movie._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
@@ -64,7 +64,7 @@ export class ProfileView extends React.Component {
   getUser = (token) => {
     const Username = localStorage.getItem("user");
     axios
-      .get(`https://ap-myflix.herokuapp.com/users/${Username}`, {
+      .get(`https://makai-flix-api.herokuapp.com/users/${Username}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -87,7 +87,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     axios
       .put(
-        `https://ap-myflix.herokuapp.com/users/${Username}`,
+        `https://makai-flix-api.herokuapp.com/users/${Username}`,
         {
           Username: this.state.Username,
           Password: this.state.Password,
@@ -124,7 +124,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
 
     axios
-      .delete(`https://ap-myflix.herokuapp.com/users/${Username}`, {
+      .delete(`https://makai-flix-api.herokuapp.com/users/${Username}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {

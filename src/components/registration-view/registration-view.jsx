@@ -12,7 +12,7 @@ export function RegistrationView (props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://ap-myflix.herokuapp.com/users', {
+        axios.post('https://makai-flix-api.herokuapp.com/users', {
             Username:username,
             Password:password,
             Email:email

@@ -9,21 +9,21 @@ import { connect } from 'react-redux';
 
 
 
-import MoviesList from '../movies-list/movies-list';
+//import {MoviesList} from '../movies-list/movies-list';
 //0
 import { setMovies, setUser } from '../../actions/actions';
 
 
 
-import  Menubar  from "../navbar/navbar";
+import { Menubar}  from "../navbar/navbar";
 import  LoginView  from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
-//import  MovieView  from "../movie-view/movie-view";
-import  DirectorView  from "../director-view/director-view";
-import  GenreView  from "../genre-view/genre-view";
-import  RegistrationView  from "../registration-view/registration-view";
-import  ProfileView  from "../profile-view/profile-view";
-import MoviesList from '../movies-list/movies-list';
+import  { MovieView } from "../movie-view/movie-view";
+import  {DirectorView}  from "../director-view/director-view";
+import { GenreView}  from "../genre-view/genre-view";
+import  {RegistrationView}  from "../registration-view/registration-view";
+import  {ProfileView } from "../profile-view/profile-view";
+//import MoviesList from '../movies-list/movies-list';
 
 
 
@@ -40,7 +40,7 @@ import MoviesList from '../movies-list/movies-list';
     } 
     
     getMovies(token) {
-      axios.get('https://ap-myflix.herokuapp.com/movies', {
+      axios.get('https://makai-flix-api.herokuapp.com/movies', {
         headers: { Authorization: `Bearer ${token}`}
       })
       .then(response => {
@@ -91,7 +91,7 @@ import MoviesList from '../movies-list/movies-list';
     //let {movies} = this.props;
     //let {user} = this.state
     let {movies, user} = this.props;
-    let localUser = localStorage.getItem('user')
+    //let localUser = localStorage.getItem('user')
     return (
       <Router>
         <Menubar user={user} />
@@ -133,7 +133,7 @@ import MoviesList from '../movies-list/movies-list';
           <Route
             path={`/users/${user}`}
             render={({ history }) => {
-              if (!user) return <Redirect to="/" />;
+              //if (!user) return <Redirect to="/" />;
               return (
                 <Col>
                   <ProfileView
@@ -160,7 +160,7 @@ import MoviesList from '../movies-list/movies-list';
             }}
           />
 
-          <Route
+<Route
             path="/movies/:movieId"
             render={({ match, history }) => {
               if (!user)
@@ -171,7 +171,14 @@ import MoviesList from '../movies-list/movies-list';
                 );
               if (movies.length === 0) return <div className="main-view" />;
               // #6 MoviesList instead of MovieView
-              return <MoviesList movies={movies}/>
+              return (
+                <Col md={8}>
+                  <MovieView
+                    movie={movies.find((m) => m._id === match.params.movieId)}
+                    onBackClick={() => history.goBack()}
+                  />
+                </Col>
+              );
                 }}
           />
 
@@ -235,41 +242,7 @@ let mapStateToProps = state => {
   };
 };
 // #8 
-export default connect(mapStateToProps, {setMovies, setUser });
-(MainView);
+export default connect(mapStateToProps, {setMovies, setUser })(MainView);
 
-    /*if (!user) return <Row>
-      <Col>
-        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-      </Col>
-    </Row>
-    if (movies.length === 0) return <div className="main-view" />;
-
-    return (
-      <Router>
-        <Row className="main-view justify-content-md-center">
-          <Route exact path="/" render={() => {
-            return movies.map(m => (
-              <Col md={3} key={m._id}>
-                <MovieCard movie={m} />
-              </Col>
-            ))
-          }} />
-          <Route path="/movies/:movieId" render={({ match }) => {
-            return <Col md={8}>
-              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
-            </Col>
-          }} />
-          <Route path="/directors/:name" render={({ match }) => {
-          if (movies.length === 0) return <div className="main-view" />;
-           return <Col md={8}>
-            <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} />
-            </Col>
-}
-} />
-
-        </Row>
-      </Router>
-    );
-  }*/
+   
   
