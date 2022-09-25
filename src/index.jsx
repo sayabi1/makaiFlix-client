@@ -28,7 +28,7 @@ class MakaiFlixApplication extends React.Component {
 }
 
 //Find the Root of our app
-const container = document.getElementsByClassName("app-container") [0];
+const container = document.getElementsByClassName("app-container")[0];
 
 // Tell React to render our app in the root DOM element
 ReactDOM.render(React.createElement(MakaiFlixApplication),container);
